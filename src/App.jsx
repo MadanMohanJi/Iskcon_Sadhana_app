@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
+
 import { 
   getAuth, 
   signInAnonymously,
@@ -33,6 +34,11 @@ const firebaseConfig = {
   appId: "1:871884934655:web:75473386b9d44679bcebca",
   measurementId: "G-3GG8DF21T9"
 };
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'pbsc-sadhana-pro';
 
 // --- Helper Functions ---
 const getDaysInMonth = (year, month) => new Date(year, month, 0).getDate();
